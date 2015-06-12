@@ -1,0 +1,16 @@
+import Ember from 'ember';
+
+export default Ember.Route.extend({
+  beforeModel() {
+    return this.store.find('user')
+      .then(function(users) {
+        return users.invoke('destroyRecord');
+      })
+      .then(() => {
+        return this.get('session').close('echo');
+      })
+      .then(() => {
+        this.transitionTo('index');
+      });
+  }
+});

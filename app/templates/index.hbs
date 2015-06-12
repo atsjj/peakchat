@@ -1,0 +1,10 @@
+<div class="flex flex-center">
+  <h1 class="m0 flex-auto" style="padding: 40px;">PeakChat</h1>
+  <div style="padding-right: 40px">
+    {{#if session.isAuthenticated}}
+      {{link-to session.currentUser 'logout'}}
+    {{else}}
+      {{link-to 'Login' 'login'}}
+    {{/if}}
+  </div>
+</div>
