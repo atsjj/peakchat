@@ -1,30 +1,30 @@
-var annoucement = null;
-
 export default class Peer {
   get annoucement() {
-    return annoucement;
+    return this._annoucement;
   }
 
   set annoucement(value) {
-    if (annoucement === null) {
+    if (this._annoucement === null) {
       this.peering.peerAnnoucementsMap[value['id']] = this.id;
-      annoucement = value;
+      this._annoucement = value;
+      this.peering.ui.writeLine('[peer:annoucement(set)] created annoucement.');
     } else {
-      if (annoucement['id'] === value['id']) {
-        annoucement = value;
+      if (this._annoucement['id'] === value['id']) {
+        this._annoucement = value;
+        this.peering.ui.writeLine('[peer:annoucement(set)] updated annoucement.');
       } else {
         this.peering.ui.writeLine('[peer:annoucement(set)] error, `id` mismatch.');
       }
     }
-    return annoucement;
+    return this._annoucement;
   }
 
   constructor(id, peering, socket) {
+    this._annoucement = null;
+
     this.id = id;
     this.peering = peering;
     this.socket = socket;
-
-    annoucement = null;
   }
 
   send(message) {
@@ -41,6 +41,7 @@ export default class Peer {
     switch(message['type']) {
       case 'annoucement':
         this.annoucement = message;
+        this.peering.ui.writeLine('[peer:annoucement] is ' + JSON.stringify(this.annoucement));
         break;
       case 'offer':
         this.peering.ui.writeLine('[peer:peerHandleOffer] called.');

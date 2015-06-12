@@ -8,5 +8,9 @@ export default Ember.Route.extend({
 
   initPeering: Ember.on('init', function() {
     get(this, 'peering');
-  })
+  }),
+
+  model() {
+    return get(this, 'peering.annoucements');
+  }
 });

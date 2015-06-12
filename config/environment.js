@@ -26,6 +26,13 @@ module.exports = function(environment) {
       'img-src': "'self'",
       'style-src': "'self'",
       'media-src': "'self'"
+    },
+
+    torii: {
+      sessionServiceName: 'session',
+      providers: {
+        'echo': {}
+      }
     }
   };
 

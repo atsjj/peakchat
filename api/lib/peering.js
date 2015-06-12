@@ -15,6 +15,7 @@ export default class Peering {
     var peer = this.peers[id] = new Peer(id, this, socket);
     var self = this;
 
+    socket.on('message', peer.message.bind(peer));
     socket.on('message', this.message.bind(this));
     socket.on('close', function() { self.closePeer.call(self, peer); });
 
@@ -33,6 +34,7 @@ export default class Peering {
     var message = JSON.parse(data);
 
     switch(message['type']) {
+      case 'annoucement':
       case 'scrape':
         this.handleScrape(message);
         break;
