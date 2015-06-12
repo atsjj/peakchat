@@ -4,6 +4,18 @@ import dictionary from './dictionary';
 import uuid from './uuid';
 
 export default class Peering {
+  get annoucements() {
+    var annoucements = dictionary(null);
+    annoucements['type'] = 'annoucements';
+    annoucements['annoucements'] = [];
+
+    for (var peer in this.peers) {
+      annoucements['annoucements'].push(this.peers[peer].annoucement);
+    }
+
+    return annoucements;
+  }
+
   constructor(options) {
     this.peers = dictionary(null);
     this.peerAnnoucementsMap = dictionary(null);
@@ -13,11 +25,13 @@ export default class Peering {
   connect(socket) {
     var id = uuid();
     var peer = this.peers[id] = new Peer(id, this, socket);
-    var self = this;
 
     socket.on('message', peer.message.bind(peer));
     socket.on('message', this.message.bind(this));
-    socket.on('close', function() { self.closePeer.call(self, peer); });
+    socket.on('close', function() {
+      this.closePeer(peer);
+      this.handleScrape();
+    }.bind(this));
 
     this.ui.writeLine('[peering:connect] opened peer@' + id);
   }
@@ -44,15 +58,7 @@ export default class Peering {
   }
 
   handleScrape() {
-    var annoucements = dictionary(null);
-    annoucements['type'] = 'annoucements';
-    annoucements['annoucements'] = [];
-
-    for (var peer in this.peers) {
-      annoucements['annoucements'].push(this.peers[peer].annoucement);
-    }
-
-    this.send(annoucements);
+    this.send(this.annoucements);
   }
 
   closePeer(peer) {

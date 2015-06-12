@@ -1,9 +1,7 @@
-import Provider from 'torii/providers/base';
+import Adapter from 'torii/adapters/application';
 import Ember from 'ember';
 
-export default Provider.extend({
-  name: 'echo',
-
+export default Adapter.extend({
   open: function(authorization) {
     return Ember.RSVP.Promise.resolve(authorization);
   }
