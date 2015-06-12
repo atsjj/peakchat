@@ -1,8 +1,6 @@
-module.exports = uuid;
+var c = new Array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f');
 
-function uuid() {
-  var c = new Array('0','1','2','3','4','5','6','7','8','9','a','b','c','d','e','f');
-
+export default function UUID() {
   for (var u = '', i = 1; i <= 36; i++) {
     if (i === 9 || i === 14 || i === 19 || i === 24) {
       u += '-';
