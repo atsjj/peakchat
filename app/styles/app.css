@@ -1,75 +1,103 @@
-@import url(http://fonts.googleapis.com/css?family=Raleway:400,700);
-
-body {
-  background: #3b3f45;
-  color: #fff;
-  font-weight: 400;
-  font-size: 1em;
-  font-family: 'Raleway', Arial, sans-serif;
-  overflow: hidden;
-  overflow-y: scroll;
-  min-height: 590px;
+.ember-application > .ember-view {
+  min-height: 100vh;
+  min-width: 100vw;
 }
 
-.label {
-  font-family: Raleway, Arial, sans-serif;
-  font-size: 40px;
-  font-weight: bold;
+.m0  { margin:        0 }
+.mt0 { margin-top:    0 }
+.mr0 { margin-right:  0 }
+.mb0 { margin-bottom: 0 }
+.ml0 { margin-left:   0 }
+
+.m2  { margin:        1rem }
+.mt2 { margin-top:    1rem }
+.mr2 { margin-right:  1rem }
+.mb2 { margin-bottom: 1rem }
+.ml2 { margin-left:   1rem }
+
+.m4  { margin:        2rem }
+.mt4 { margin-top:    2rem }
+.mr4 { margin-right:  2rem }
+.mb4 { margin-bottom: 2rem }
+.ml4 { margin-left:   2rem }
+
+.p0  { padding:        0 }
+.pt0 { padding-top:    0 }
+.pr0 { padding-right:  0 }
+.pb0 { padding-bottom: 0 }
+.pl0 { padding-left:   0 }
+
+.p1  { padding:        .5rem }
+.pt1 { padding-top:    .5rem }
+.pr1 { padding-right:  .5rem }
+.pb1 { padding-bottom: .5rem }
+.pl1 { padding-left:   .5rem }
+
+/* Basscss Color Borders */
+
+.border {
+  border-style: solid;
+  border-width: 1px;
+  border-color: rgba(0,0,0,.125);
 }
 
-.error {
-  color: rgb(235, 126, 127);
-  font-family: Raleway, Arial, sans-serif;
-  font-size: 16px;
-  font-weight: bold;
+.border-top {
+  border-top-style: solid;
+  border-top-width: 1px;
+  border-top-color: rgba(0,0,0,.125);
 }
 
-.fs-show {
-  -webkit-animation: animFadeIn 0.5s;
-  animation: animFadeIn 0.5s;
+.border-right {
+  border-right-style: solid;
+  border-right-width: 1px;
+  border-right-color: rgba(0,0,0,.125);
 }
 
-@-webkit-keyframes animFadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.border-bottom {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: rgba(0,0,0,.125);
 }
 
-@keyframes animFadeIn {
-  0% { opacity: 0; }
-  100% { opacity: 1; }
+.border-left {
+  border-left-style: solid;
+  border-left-width: 1px;
+  border-left-color: rgba(0,0,0,.125);
 }
 
-input.fancy:focus,
-button.fancy:focus {
-  outline: none;
-}
+.rounded { border-radius: 3px }
+.circle  { border-radius: 50% }
 
-input.fancy {
-  height: auto;
-  margin: 0;
-  padding: 0 0 0.15em;
-  width: 100%;
-  border: none;
-  border-bottom: 2px solid rgba(0,0,0,0.2);
-  background-color: transparent;
-  color: #fffed8;
-  text-overflow: ellipsis;
-  font-weight: bold;
-  font-size: 60px;
-  border-radius: 0;
-}
+.rounded-top    { border-radius: 3px 3px 0 0 }
+.rounded-right  { border-radius: 0 3px 3px 0 }
+.rounded-bottom { border-radius: 0 0 3px 3px }
+.rounded-left   { border-radius: 3px 0 0 3px }
 
-input.fancy:invalid {
-  box-shadow: none; /* removes red shadow in FF*/
-}
+.not-rounded { border-radius: 0 }
 
-input.fancy [required] {
-  background-image: url(/images/abacusstar.svg);
-  background-position: top right;
-  background-size: 18px;
-  background-repeat: no-repeat;
-}
+/* Basscss Border Colors */
 
-input.fancy:focus {
-  background-color: #3b3f45; /* Fixes chrome bug with placeholder */
-}
+.border-black  { border-color: #111 }
+.border-gray   { border-color: #aaa }
+.border-silver { border-color: #ddd }
+.border-white  { border-color: #fff }
+
+.border-aqua  { border-color: #7fdbff }
+.border-blue  { border-color: #0074d9 }
+.border-navy  { border-color: #001f3f }
+.border-teal  { border-color: #39cccc }
+.border-green { border-color: #2ecc40 }
+.border-olive { border-color: #3d9970 }
+.border-lime  { border-color: #01ff70 }
+
+.border-yellow  { border-color: #ffdc00 }
+.border-orange  { border-color: #ff851b }
+.border-red     { border-color: #ff4136 }
+.border-fuchsia { border-color: #f012be }
+.border-purple  { border-color: #b10dc9 }
+.border-maroon  { border-color: #85144b }
+
+.border-darken-1 { border-color: rgba(0,0,0,.0625) }
+.border-darken-2 { border-color: rgba(0,0,0,.125) }
+.border-darken-3 { border-color: rgba(0,0,0,.25) }
+.border-darken-4 { border-color: rgba(0,0,0,.5) }

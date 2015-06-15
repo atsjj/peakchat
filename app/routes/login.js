@@ -1,4 +1,5 @@
 import Ember from 'ember';
+import UnauthenticatedRouteMixin from 'simple-auth/mixins/unauthenticated-route-mixin';
 
 export default Ember.Route.extend({
   peering: Ember.inject.service('peering'),
@@ -10,15 +11,13 @@ export default Ember.Route.extend({
   actions: {
     loginToChat() {
       var model = this.modelFor('login');
-
-      this.get('session').open('echo', model)
+      this.get('session').authenticate('authenticator:application', { name: model.get('name') })
         .then(() => {
-          this.set('peering.identity', model.get('name'));
           return model.save();
         })
         .then(() => {
-          this.transitionTo('index');
-        });
+          this.set('peering.identity', model.get('name'));
+        })
     },
 
     willTransition() {

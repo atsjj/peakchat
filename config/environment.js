@@ -28,11 +28,11 @@ module.exports = function(environment) {
       'media-src': "'self'"
     },
 
-    torii: {
-      sessionServiceName: 'session',
-      providers: {
-        'echo': {}
-      }
+    'simple-auth': {
+
+      'routeAfterAuthentication': 'chat',
+      'routeIfAlreadyAuthenticated': 'chat',
+      'store': 'simple-auth-session-store:ephemeral'
     }
   };
 

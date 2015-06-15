@@ -1,16 +1,21 @@
-<form class="flex flex-column" style="min-height: 96vh;" {{action "loginToChat" on="submit"}}>
-  <h1 class="m0" style="padding: 40px;">PeakChat</h1>
-  <div class="m0 flex-auto" style="padding: 120px;">
-    <ol class="list-reset flex">
-      <li class="m1 flex flex-column flex-auto">
-        <label class="label m1 mt4 mb3" for="username">What is your name?</label>
-        {{input class="fancy m1 mt4 mb3" type="text" placeholder="Johnny Appleseed" required="required" value=model.name}}
-        <label class="flex-first error m1 mt4 mb3" for="username">Please fill the field before continuing</label>
-      </li>
-    </ol>
+<form class="flex-auto flex flex-column m0 p1" style="min-height: 100vh;" {{action "loginToChat" on="submit"}}>
+  <div class="mt4 ml4">
+    <h4>PeakChat</h4>
   </div>
-  <div class="m0 px4 flex flex-end">
-    <div class="flex-auto"></div>
-    <button class="flex-none" style="padding: 12px 30px;" type="submit">Login</button>
+  <div class="flex-auto flex flex-center">
+    <div class="flex-grow"></div>
+    <div class="m0 p0 col-xs-8">
+      <ol class="list-unstyled m2 flex">
+        <li class="m1 flex flex-column flex-auto">
+          <label for="username">What is your name?</label>
+          {{input class="form-control input-lg" type="text" placeholder="Johnny Appleseed" required="required" value=model.name}}
+          <span class="flex-first mb4 help-block">Please fill the field before continuing</span>
+        </li>
+      </ol>
+    </div>
+    <div class="flex-grow"></div>
+  </div>
+  <div class="mb4 mr4 text-right">
+    <button class="btn btn-large btn-primary" type="submit">Login</button>
   </div>
 </form>

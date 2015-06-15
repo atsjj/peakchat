@@ -7,9 +7,6 @@ export default Ember.Route.extend({
         return users.invoke('destroyRecord');
       })
       .then(() => {
-        return this.get('session').close('echo');
-      })
-      .then(() => {
         this.transitionTo('index');
       });
   }

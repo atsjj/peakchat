@@ -1,6 +1,6 @@
 import { moduleForComponent, test } from 'ember-qunit';
 
-moduleForComponent('peakchat-video', 'Unit | Component | peakchat video', {
+moduleForComponent('peakchat-person', 'Unit | Component | peakchat person', {
   // Specify the other units that are required for this test
   // needs: ['component:foo', 'helper:bar'],
   unit: true
