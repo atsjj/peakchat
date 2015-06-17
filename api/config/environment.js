@@ -2,7 +2,7 @@
 
 module.exports = function(environment) {
   var ENV = {
-    modulePrefix: 'peakchat',
+    modulePrefix: 'api',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
